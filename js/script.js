@@ -7,8 +7,29 @@
 // Document Ready Function. All of your jQuery should go in here. 
 $( document ).ready(function() {
   
+  $("#translate").click(function(){
+  	var text = $("#box").val();
+  	console.log(text)
+	
+	$("#original").html(text)
+  	var translated = translateToPigLatin(text);
+    $("#translated").html(translated);
+  })
 
-
+	function translateToPigLatin(text){
+		var vowels = ["a", "e", "i", "o", "u"]
+		var firstLetter = text[0];
+		console.log(text)
+		console.log(firstLetter)
+		if(vowels.indexOf(firstLetter) > -1) {
+			console.log("this word begins with a vowel")
+			return text + "yay";
+		} else {
+            console.log("this word does not begin with a vowel")
+            return text.slice(1) + firstLetter + "ay";
+		}
+		
+	}
 
 });
 
